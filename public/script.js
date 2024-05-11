@@ -85,43 +85,15 @@ $(function () {
 
 
 
-//   window.onload = function() {
-//     var images = document.querySelectorAll('.zoomable-image');
-//     images.forEach(function(image) {
-//         image.addEventListener('click', function() {
-//             var imageUrl = this.src;
-//             window.location.href = imageUrl;
-//         });
-//     });
-// };
-
-
-
-
-window.onload = function() {
+  window.onload = function() {
     var images = document.querySelectorAll('.zoomable-image');
-    var modalImg = document.getElementById('modalImage');
-    var currentIndex = 0;
-
-    images.forEach(function(image, index) {
+    images.forEach(function(image) {
         image.addEventListener('click', function() {
-            currentIndex = index;
-            modalImg.src = this.src;
+            var imageUrl = this.src;
+            window.location.href = imageUrl;
         });
     });
-
-    // Προσθέτουμε τη λειτουργικότητα για τα πλήκτρα Next και Previous
-    document.getElementById('nextBtn').addEventListener('click', function() {
-        currentIndex = (currentIndex + 1) % images.length;
-        modalImg.src = images[currentIndex].src;
-    });
-
-    document.getElementById('prevBtn').addEventListener('click', function() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        modalImg.src = images[currentIndex].src;
-    });
 };
-
 
 
 
