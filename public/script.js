@@ -97,3 +97,8 @@ $(function () {
 
 
 
+function callPhoneNumber() {
+    // Προσθέστε τον κώδικα JavaScript εδώ για να καλέσετε τον αριθμό τηλεφώνου ή να εκτελέσετε άλλες ενέργειες
+    // Παράδειγμα:
+    window.location.href = "tel:6177787312";
+}
