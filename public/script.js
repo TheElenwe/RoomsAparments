@@ -97,8 +97,60 @@ $(function () {
 
 
 
-function callPhoneNumber() {
-    // Προσθέστε τον κώδικα JavaScript εδώ για να καλέσετε τον αριθμό τηλεφώνου ή να εκτελέσετε άλλες ενέργειες
-    // Παράδειγμα:
-    window.location.href = "tel:6177787312";
-}
+// function callPhoneNumber() {
+   
+//     window.location.href = "tel:+491783642549";
+// }
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     var form = document.querySelector("form");
+//     var loadingMessage = document.getElementById("loading-message");
+
+//     form.addEventListener("submit", function() {
+     
+//         loadingMessage.style.display = "block";
+//     });
+// });
+
+
+    // const sendMail = {
+    //     name: document.getElementById('name').value,
+    //     email: document.getElementById('email').value,
+    //     subject: document.getElementById('subject').value,
+    //     message: document.getElementById('message').value,
+    //     to_email: 'elenwe97@hotmail.com' // Replace with the recipient's email address
+    // };
+
+    // emailjs.send("service_2eihjkm","template_k29bses", sendMail)
+    //     .then(function(response) {
+    //         console.log('SUCCESS!', response.status, response.text);
+    //         alert('Message sent successfully!');
+    //     }, function(error) {
+    //         console.log('FAILED...', error);
+    //         alert('Failed to send the message. Please try again later.');
+    //     });
+
+    function sendMail() {
+        var params = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('message').value,
+           
+        };
+    
+    
+        const serviceId="service_2eihjkm"
+        const templateID="template_nntcy4o"
+
+       emailjs.send(serviceId,templateID, params)
+     .then(
+        res => {
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+        console.log(res);
+        alert("message sent successfully") ;
+     }
+     )
+     .catch((err) => console.log(err))
+    }
