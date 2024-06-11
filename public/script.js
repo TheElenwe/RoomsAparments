@@ -1,156 +1,142 @@
 $(function () {
-    let headerElem = $('header');
-    let logo = $('#logo');
-    let navMenu = $('#nav-menu');
-    let navToggle = $('#nav-toggle');
-  
-   $('#properties-slider').slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        prevArrow: '<a href="#" class="slick-arrow slick-prev">previous</a>',
-        nextArrow: '<a href="#" class="slick-arrow slick-next">next</a>',
-        responsive: [
-            {
-                breakpoint: 1100,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                }
-            },
-            {
-                breakpoint: 530,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                }
-            }
-        ]
-   });
-  
-   $('#testimonials-slider').slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        prevArrow: '<a href="#" class="slick-arrow slick-prev"><</a>',
-        nextArrow: '<a href="#" class="slick-arrow slick-next">></a>'
-   });
-  
-   navToggle.on('click', () => {
-       navMenu.css('right', '0');
-   });
-  
-   $('#close-flyout').on('click', () => {
-        navMenu.css('right', '-100%');
-   });
-  
-   $(document).on('click', (e) => {
-       let target = $(e.target);
-       if (!(target.closest('#nav-toggle').length > 0 || target.closest('#nav-menu').length > 0)) {
-           navMenu.css('right', '-100%');
-       }
-   });
-  
-   $(document).scroll(() => {
-       let scrollTop = $(document).scrollTop();
-  
-       if (scrollTop > 0) {
-           navMenu.addClass('is-sticky');
-           logo.css('color', '#000');
-           headerElem.css('background', '#fff');
-           navToggle.css('border-color', '#000');
-           navToggle.find('.strip').css('background-color', '#000');
-       } else {
-           navMenu.removeClass('is-sticky');
-           logo.css('color', '#fff');
-           headerElem.css('background', 'transparent');
-           navToggle.css('bordre-color', '#fff');
-           navToggle.find('.strip').css('background-color', '#fff');
-       }
-  
-       headerElem.css(scrollTop >= 200 ? {'padding': '0.5rem', 'box-shadow': '0 -4px 10px 1px #999'} : {'padding': '1rem 0', 'box-shadow': 'none' });
-   });
-  
-   $(document).trigger('scroll');
+  let headerElem = $("header");
+  let logo = $("#logo");
+  let navMenu = $("#nav-menu");
+  let navToggle = $("#nav-toggle");
+
+  $("#properties-slider").slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    prevArrow: '<a href="#" class="slick-arrow slick-prev">previous</a>',
+    nextArrow: '<a href="#" class="slick-arrow slick-next">next</a>',
+    responsive: [
+      {
+        breakpoint: 1100,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 530,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+    ],
   });
 
+  $("#testimonials-slider").slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    prevArrow: '<a href="#" class="slick-arrow slick-prev"><</a>',
+    nextArrow: '<a href="#" class="slick-arrow slick-next">></a>',
+  });
 
+  navToggle.on("click", () => {
+    navMenu.css("right", "0");
+  });
 
-  window.onload = function() {
-    var images = document.querySelectorAll('.zoomable-image');
-    images.forEach(function(image) {
-        image.addEventListener('click', function() {
-            var imageUrl = this.src;
-            window.location.href = imageUrl;
-        });
+  $("#close-flyout").on("click", () => {
+    navMenu.css("right", "-100%");
+  });
+
+  $(document).on("click", (e) => {
+    let target = $(e.target);
+    if (
+      !(
+        target.closest("#nav-toggle").length > 0 ||
+        target.closest("#nav-menu").length > 0
+      )
+    ) {
+      navMenu.css("right", "-100%");
+    }
+  });
+
+  $(document).scroll(() => {
+    let scrollTop = $(document).scrollTop();
+
+    if (scrollTop > 0) {
+      navMenu.addClass("is-sticky");
+      logo.css("color", "#000");
+      headerElem.css("background", "#fff");
+      navToggle.css("border-color", "#000");
+      navToggle.find(".strip").css("background-color", "#000");
+    } else {
+      navMenu.removeClass("is-sticky");
+      logo.css("color", "#fff");
+      headerElem.css("background", "transparent");
+      navToggle.css("bordre-color", "#fff");
+      navToggle.find(".strip").css("background-color", "#fff");
+    }
+
+    headerElem.css(
+      scrollTop >= 200
+        ? { padding: "0.5rem", "box-shadow": "0 -4px 10px 1px #999" }
+        : { padding: "1rem 0", "box-shadow": "none" }
+    );
+  });
+
+  $(document).trigger("scroll");
+});
+
+window.onload = function () {
+  var images = document.querySelectorAll(".zoomable-image");
+  images.forEach(function (image) {
+    image.addEventListener("click", function () {
+      var imageUrl = this.src;
+      window.location.href = imageUrl;
     });
+  });
 };
 
+function callPhoneNumber() {
+
+    window.location.href = "tel:+491783642549";
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var form = document.querySelector("form");
+    var loadingMessage = document.getElementById("loading-message");
+
+    form.addEventListener("submit", function() {
+
+        loadingMessage.style.display = "block";
+    });
+});
 
 
-// function callPhoneNumber() {
-   
-//     window.location.href = "tel:+491783642549";
+
+// function sendMail() {
+//   var params = {
+//     name: document.getElementById("name").value,
+//     email: document.getElementById("email").value,
+//     message: document.getElementById("message").value,
+//   };
+
+//   const serviceId = "service_2eihjkm";
+//   const templateID = "template_nntcy4o";
+
+//   emailjs
+//     .send(serviceId, templateID, params)
+//     .then((res) => {
+//       document.getElementById("name").value = "";
+//       document.getElementById("email").value = "";
+//       document.getElementById("message").value = "";
+//       console.log(res);
+//       alert("message sent successfully");
+//     })
+//     .catch((err) => console.log(err));
 // }
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     var form = document.querySelector("form");
-//     var loadingMessage = document.getElementById("loading-message");
-
-//     form.addEventListener("submit", function() {
-     
-//         loadingMessage.style.display = "block";
-//     });
-// });
-
-
-    // const sendMail = {
-    //     name: document.getElementById('name').value,
-    //     email: document.getElementById('email').value,
-    //     subject: document.getElementById('subject').value,
-    //     message: document.getElementById('message').value,
-    //     to_email: 'elenwe97@hotmail.com' // Replace with the recipient's email address
-    // };
-
-    // emailjs.send("service_2eihjkm","template_k29bses", sendMail)
-    //     .then(function(response) {
-    //         console.log('SUCCESS!', response.status, response.text);
-    //         alert('Message sent successfully!');
-    //     }, function(error) {
-    //         console.log('FAILED...', error);
-    //         alert('Failed to send the message. Please try again later.');
-    //     });
-
-    function sendMail() {
-        var params = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value,
-           
-        };
-    
-    
-        const serviceId="service_2eihjkm"
-        const templateID="template_nntcy4o"
-
-       emailjs.send(serviceId,templateID, params)
-     .then(
-        res => {
-        document.getElementById("name").value = "";
-        document.getElementById("email").value = "";
-        document.getElementById("message").value = "";
-        console.log(res);
-        alert("message sent successfully") ;
-     }
-     )
-     .catch((err) => console.log(err))
-    }

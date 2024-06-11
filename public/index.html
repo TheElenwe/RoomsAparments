@@ -11,10 +11,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/95dc93da07.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> 
+   
 
-    <script type="text/javascript"
+    <!-- <script type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
 <script type="text/javascript">
@@ -23,7 +23,7 @@
     publicKey: "jvmeFayupQAV662CS",
   });
 })();
-</script>
+</script> -->
 </head>
 
 <body>
@@ -279,20 +279,22 @@
                     </form> -->
              
 
-                    <form > 
+                    <form method="POST" action="https://formspree.io/f/mjvndvgo"> 
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name"/>
                     
                         <label for="email">Email</label>
-                        <input type="text" id="email" name="email" />
+                        <input type="text" id="email" name="email" required />
                     
-                        <!-- <label for="subject">Subject</label>
+                        <label for="subject">Subject</label>
                         <input type="text" id="subject" name="subject" />
-                     -->
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message">Write your message here..</textarea>
                     
-                        <button type="button"  onclick="sendMail()" class="rounded">Send Message</button>
+                        <label for="message">Message</label>
+                        <textarea id="message"  name="message" placeholder="Write your message here.."></textarea>
+                    
+                        <button  class="rounded">Send Message</button>
+
+                        <!-- <button type="button"  onclick="sendMail()" class="rounded">Send Message</button> -->
                     </form>
                     <div id="loading-message" style="display: none;">Loading...</div>
                     </div>  

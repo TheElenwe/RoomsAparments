@@ -232,8 +232,13 @@ header ul.is-sticky li a.active {
 
 /* start: hero section styles */
 #hero {
-    background: url('https://onclickwebdesign.com/wp-content/uploads/hero_1.jpg') center center no-repeat;
-    background-size: cover;
+  background:url('valodik011.jpeg');
+    /* background-image: url('valodik02.jpeg'); */
+     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background: url('https://onclickwebdesign.com/wp-content/uploads/hero_1.jpg') center center no-repeat; */
+    /* background-size: cover; */
     position: absolute;
     top: 0;
     left: 0;
@@ -249,6 +254,7 @@ header ul.is-sticky li a.active {
     top: 0;
     left: 0;
     background: rgba(52, 58, 64, 0.9);
+    
     z-index: 1;
 }
 
